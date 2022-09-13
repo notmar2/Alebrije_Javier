@@ -6,8 +6,17 @@ public enum Direction { Up, Down, Left, Right }
 
 public class BasePlayer : MonoBehaviour
 {
-    public bool horizontalMovement, verticalMovement, detectCollisions, canShoot;
-    public float maxSpeed, currentSpeed;
+    [Header("Controles")]
+    public KeyCode movementUp;
+    public KeyCode movementDown, movementLeft, movementRight, shoot;
+
+    [Header("Configuracion")]
+    public bool horizontalMovement;
+    public bool verticalMovement, detectCollisions, canShoot;
+
+    [Header("Variables")]
+    public float maxSpeed;
+    public float currentSpeed;
 
     // Start is called before the first frame update
     void Start()
@@ -18,23 +27,23 @@ public class BasePlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.W) && verticalMovement)
+        if(Input.GetKeyDown(movementUp) && verticalMovement)
         {
             MoveDirection(Direction.Up);
         }
-        if(Input.GetKeyDown(KeyCode.A) && horizontalMovement)
+        if(Input.GetKeyDown(movementLeft) && horizontalMovement)
         {
             MoveDirection(Direction.Left);
         }
-        if(Input.GetKeyDown(KeyCode.S) && verticalMovement)
+        if(Input.GetKeyDown(movementDown) && verticalMovement)
         {
             MoveDirection(Direction.Down);
         }
-        if(Input.GetKeyDown(KeyCode.D) && horizontalMovement)
+        if(Input.GetKeyDown(movementRight) && horizontalMovement)
         {
             MoveDirection(Direction.Up);
         }
-        if(Input.GetKeyDown(KeyCode.Space) && canShoot)
+        if(Input.GetKeyDown(shoot) && canShoot)
         {
             Shoot();
         }
