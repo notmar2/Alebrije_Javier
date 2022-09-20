@@ -4,13 +4,42 @@ using UnityEngine;
 
 public class PongPlayer : BasePlayer
 {
-   public override void ProcessCollision()
-   {
-        Debug.Log("Procesando Colision desde Pong"); 
-   }
+    [Header("Pong")]
+    public RectTransform rectTransform;
+    public Rigidbody2D rigidBody;
 
-   public override void MoveDirection(Direction direction)
+    public bool hasBall, insideUpperLimit, insideLowerLimit;
+
+    public override void MoveDirection(Direction direction)
     {
-        Debug.Log("Procesando Movimiento desde Pong");
+        switch (direction)
+        {
+            case Direction.Up:
+                if(insideUpperLimit){
+                    rigidBody.MovePosition(rigidBody.position + Vector2.up * maxSpeed * Time.deltaTime);
+                }
+                break;
+            case Direction.Down:
+                if(insideLowerLimit){
+                    rigidBody.MovePosition(rigidBody.position - Vector2.up * maxSpeed * Time.deltaTime);
+                }
+                break;
+            default:
+                Debug.Log("Esto no se puede");
+                break;
+        }
     }
+
+    public override void Shoot(){
+        if(hasBall){
+            Debug.Log("Shoot Ball");
+        }
+        //Debug.Log("Shoot");
+    }
+
+    public override void ProcessCollision()
+    {
+        Debug.Log("Procesando Colision desde Pong"); 
+    }
+
 }

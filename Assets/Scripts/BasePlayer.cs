@@ -27,21 +27,21 @@ public class BasePlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(movementUp) && verticalMovement)
+        if(Input.GetKey(movementUp) && verticalMovement)
         {
             MoveDirection(Direction.Up);
         }
-        if(Input.GetKeyDown(movementLeft) && horizontalMovement)
+        if(Input.GetKey(movementLeft) && horizontalMovement)
         {
             MoveDirection(Direction.Left);
         }
-        if(Input.GetKeyDown(movementDown) && verticalMovement)
+        if(Input.GetKey(movementDown) && verticalMovement)
         {
             MoveDirection(Direction.Down);
         }
-        if(Input.GetKeyDown(movementRight) && horizontalMovement)
+        if(Input.GetKey(movementRight) && horizontalMovement)
         {
-            MoveDirection(Direction.Up);
+            MoveDirection(Direction.Right);
         }
         if(Input.GetKeyDown(shoot) && canShoot)
         {
