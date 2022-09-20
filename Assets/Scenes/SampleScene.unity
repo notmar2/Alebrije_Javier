@@ -224,7 +224,7 @@ MonoBehaviour:
   verticalMovement: 1
   detectCollisions: 1
   canShoot: 1
-  maxSpeed: 5000
+  maxSpeed: 3000
   currentSpeed: 0
   rectTransform: {fileID: 73651818}
   rigidBody: {fileID: 73651824}
@@ -250,7 +250,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 5
 --- !u!61 &73651825
 BoxCollider2D:
@@ -314,7 +314,9 @@ GameObject:
   m_Component:
   - component: {fileID: 203901460}
   - component: {fileID: 203901462}
+  - component: {fileID: 203901465}
   - component: {fileID: 203901461}
+  - component: {fileID: 203901464}
   - component: {fileID: 203901463}
   m_Layer: 5
   m_Name: Pelota
@@ -397,6 +399,43 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 12.5
+--- !u!50 &203901464
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 203901459}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 6200000, guid: 0d8a7d00e8e8ecc4c8efe837dfc6f9ec, type: 2}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 4
+--- !u!114 &203901465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 203901459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dfb0a2dcfad7724c90377630392cec1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ui: {fileID: 0}
+  speed: 300
+  rectTransform: {fileID: 203901460}
+  rb: {fileID: 203901464}
 --- !u!1 &341161665
 GameObject:
   m_ObjectHideFlags: 0
@@ -771,7 +810,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 5
 --- !u!114 &946406598
 MonoBehaviour:
@@ -794,7 +833,7 @@ MonoBehaviour:
   verticalMovement: 1
   detectCollisions: 1
   canShoot: 1
-  maxSpeed: 5000
+  maxSpeed: 3000
   currentSpeed: 0
   rectTransform: {fileID: 946406594}
   rigidBody: {fileID: 946406596}
@@ -1503,6 +1542,7 @@ GameObject:
   - component: {fileID: 1883695975}
   - component: {fileID: 1883695977}
   - component: {fileID: 1883695976}
+  - component: {fileID: 1883695978}
   m_Layer: 5
   m_Name: Puntaje2
   m_TagString: Untagged
@@ -1627,6 +1667,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1883695974}
   m_CullTransparentMesh: 1
+--- !u!114 &1883695978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1883695974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8298d4302e46cbf46b89313ffc5cad9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointsLeftAmount: 0
+  pointsRightAmount: 0
+  pointsLeft: {fileID: 1916511073}
+  pointsRight: {fileID: 1883695976}
 --- !u!1 &1896530142
 GameObject:
   m_ObjectHideFlags: 0
@@ -1679,6 +1735,7 @@ GameObject:
   - component: {fileID: 1916511072}
   - component: {fileID: 1916511074}
   - component: {fileID: 1916511073}
+  - component: {fileID: 1916511075}
   m_Layer: 5
   m_Name: Puntaje1
   m_TagString: Untagged
@@ -1803,3 +1860,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1916511071}
   m_CullTransparentMesh: 1
+--- !u!114 &1916511075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1916511071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8298d4302e46cbf46b89313ffc5cad9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointsLeftAmount: 0
+  pointsRightAmount: 0
+  pointsLeft: {fileID: 1916511073}
+  pointsRight: {fileID: 1883695976}
